@@ -66,18 +66,6 @@ export default function Shop() {
                         </div>
                     </td>
                     <td>
-                        <div style={addToCartStyle}> 
-                            <h1>Cart</h1>        
-                            <ul>
-                                {cart.map( data => (
-                                    <li  style={listStyle}  key={data.id}>
-                                        <img style={icon} src={data.icon}></img>                             
-                                        {data.name}
-                                    </li>
-                                ))}
-
-                            </ul>
-                        </div>
                     </td>
                 </tr>
             </table>
