@@ -1,6 +1,6 @@
-import React, {  useRef, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import {Rtif} from '../Rtif';
-import CartItem from './CartItem'
+import Cart from './Cart';
 export default function ItemDetail({match}) {
     const CART_KEY = 'cart-key';
     const imageStyle = {
@@ -14,19 +14,12 @@ export default function ItemDetail({match}) {
         textAlign: 'center',
         paddingLeft: '100px'
     }    
-    const tableStyle = {
-        border: '1px solid #bdbaba'
-    }    
-    const colStyle = {
-        border: '1px solid #bdbaba'
-    } 
 
 
     const [item, setItem] = useState([ ]);
     const [items, setItems] = useState([ ]);
     const [cart, setCart] = useState([ ]);
     const [cost, setCost] = useState([ ]);
-    const cartRef = useRef();                    
 
     useEffect(()=>{
         // localStorage.setItem(CART_KEY, JSON.stringify([]));
@@ -59,20 +52,16 @@ export default function ItemDetail({match}) {
         }
         // console.log( items );
     },[items]); //It will be called everytime todos [] change.
-    function clearCart(){
-        const newCart = [...cart];
-        setCart( newCart.filter( cartItem => cartItem.complete ) );        
-    }    
     function handleCart(){
         let newCart = [...cart];        
         let cartItem = cart.filter( cartItem => cartItem.id === match.params.id );      
         if(cartItem === undefined || cartItem === null || cartItem.length === 0){
-            newCart = [...newCart, {id:  match.params.id, name: item.name, icon: item.images.icon, cost: cost, qty: 1, complete: true} ]
+            newCart = [...newCart, {id:  match.params.id, name: item.name, icon: item.images.icon, cost: cost, qty: 1, complete: false} ]
         }else{
             newCart.map((cartItem) => {
                 if(cartItem.id === match.params.id){
                     cartItem.qty++; 
-                    cartItem.complete= true;
+                    cartItem.complete= false;
                     cartItem.totalCost = cartItem.qty * cartItem.cost
                 }
             });       
@@ -80,14 +69,16 @@ export default function ItemDetail({match}) {
         calculateTotal(newCart) ;   
     }        
     function calculateTotal(newCart){
+        let total = 0;
         newCart.map((cartItem) => {
             cartItem.totalItemCost = cartItem.qty * cartItem.cost
+            total = total + cartItem.totalItemCost;
         });    
         setCart(newCart);     
     }
     const fetchItem = async () =>{
         const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?${match.params.id}`);
-        const itemsJson = await data.json()
+        // const itemsJson = await data.json()
         // setItem( itemsJson);
     }
     const fetchItems = async () =>{
@@ -96,12 +87,7 @@ export default function ItemDetail({match}) {
         setItems(itemsJson.data);
         // console.log( itemsJson.data);
     }
-    function togglecart(id){
-        const newCart = [...cart];
-        const cartItem = newCart.find( cart => cart.id ===id );
-        cartItem.complete =  !cartItem.complete;
-        setCart(newCart);        
-    }    
+
     return (
         <>  
             <table >
@@ -120,31 +106,23 @@ export default function ItemDetail({match}) {
                             {/* <img src={item.images?.background}></img>                  */}
                             {/* <img src={item.images?.information}></img>                  */}
                             <h2><i>{item.description}</i></h2>
+                            <button onClick={handleCart}>Add To Cart</button>
                         </div>
                     </td>
                     <td>
                         <div style={addToCartStyle}> 
-                            <button onClick={handleCart}>Add To Cart</button>
-                            <button onClick={clearCart}>Clear Cart</button>
-                            <table style={tableStyle}>
-                                <tr>
-                                    <th style={colStyle}>#</th><th style={colStyle}></th><th style={colStyle}>Item</th>
-                                    <th style={colStyle}>Quantity</th><th style={colStyle}>Sub Total</th>
-                                </tr>
-                                {cart.map( data => (
-                                    <tr  key={data.id}>
-                                        <CartItem cartItem={data} toggleCartItem={togglecart}></CartItem>
-                                    </tr>
-                                ))}
-                                <tr>
-                                 <th style={colStyle} colSpan="4">Total</th><th style={colStyle}>100</th>
-                                </tr>
-
-                            </table>
+                            {/* <button onClick={handleCart}>Add To Cart</button> */}
+                            {/* <button onClick={clearCart}>Clear Cart</button> */}
+                            <Cart cart={cart} setCart={setCart}></Cart>            
                         </div>
+
+
                     </td>
                 </tr>
             </table>
+
+
+
         </>
     )
 }

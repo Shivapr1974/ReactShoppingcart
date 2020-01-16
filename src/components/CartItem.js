@@ -7,8 +7,13 @@ export default function CartItem({cartItem,toggleCartItem}) {
         paddingRight: '10px'
     }
     const colStyle = {
-        border: '1px solid #bdbaba'
+        border: '1px solid #bdbaba',
+        textAlign: 'left'
     } 
+    const numStyle = {
+        border: '1px solid #bdbaba',
+        textAlign: 'right'
+    }     
     function handleTodosClick(){
         toggleCartItem(cartItem.id);
     }
@@ -17,8 +22,8 @@ export default function CartItem({cartItem,toggleCartItem}) {
             <input type="checkbox" checked={cartItem.complete} onChange={handleTodosClick}/>
                 <td style={colStyle}><img style={icon} src={cartItem.icon}></img> </td>                             
                 <td style={colStyle}>{cartItem.name}</td>  
-                <td style={colStyle}>{cartItem.qty}</td>  
-                <td style={colStyle}>{cartItem.totalItemCost}</td>      
+                <td style={numStyle}>{cartItem.qty}</td>  
+                <td style={numStyle}>{cartItem.totalItemCost}</td>      
         </>
     )
 }

@@ -7,7 +7,7 @@ import Nav from './nav';
 import ItemDetail from './components/ItemDetail'
 import "react-dom";
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
+import CartPage from './components/CartPage'
 // URL : https://www.youtube.com/watch?v=hQAHSlTtcmY
 // URL : https://www.youtube.com/watch?v=Law7wfdg_ls
 // URL : https://medium.com/@sebastianfrancoflix/ngif-on-react-c4a67d2de011
@@ -24,6 +24,7 @@ function App() {
           <Route path="/shop" exact component={Shop}></Route>
           <Route path="/shop/:id/:name" exact component={ItemDetail}></Route>
           <Route path="/todos" exact component={Todos}></Route>
+          <Route path="/cart" exact component={CartPage}></Route>
         </Switch>
       </div>
     </Router>
