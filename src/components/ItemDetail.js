@@ -1,6 +1,8 @@
 import React, {  useState, useEffect } from 'react';
 import {Rtif} from '../Rtif';
 import Cart from './Cart';
+import fetchItemsData from './Data'
+
 export default function ItemDetail({match}) {
     const CART_KEY = 'cart-key';
     const imageStyle = {
@@ -24,15 +26,17 @@ export default function ItemDetail({match}) {
     useEffect(()=>{
         // localStorage.setItem(CART_KEY, JSON.stringify([]));
         let cart = localStorage.getItem(CART_KEY);
-        console.log( 'Get: ' + JSON.parse(cart));
+        // console.log( 'Get: ' + JSON.parse(cart));
         if(cart === null || cart === undefined){
             cart = []
             setCart(cart);            
         }else{
             calculateTotal(JSON.parse(cart));
         }
-        fetchItems();
-        fetchItem();
+        (async () => {
+            const data = await fetchItemsData();
+            setItems(data);
+        })();  
     },[]) ; //Since array is empty it will be called once. 
     useEffect(()=>{
         localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -76,17 +80,7 @@ export default function ItemDetail({match}) {
         });    
         setCart(newCart);     
     }
-    const fetchItem = async () =>{
-        const data = await fetch(`https://fortnite-api.theapinetwork.com/item/get?${match.params.id}`);
-        // const itemsJson = await data.json()
-        // setItem( itemsJson);
-    }
-    const fetchItems = async () =>{
-        const data = await fetch('https://fortnite-api.theapinetwork.com/store/get');
-        const itemsJson = await data.json()
-        setItems(itemsJson.data);
-        // console.log( itemsJson.data);
-    }
+
 
     return (
         <>  

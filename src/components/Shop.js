@@ -1,7 +1,8 @@
 import React, {  useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 import triviaJson from '../Items.json';
-
+import Cart from './Cart';
+import fetchItemsData from './Data'
 export default function Shop() {
     const CART_KEY = 'cart-key';
     const icon = {
@@ -23,9 +24,13 @@ export default function Shop() {
     const [cart, setCart] = useState([ ]);
 
     useEffect(()=>{
-        fetchItems();
+        (async () => {
+            const data = await fetchItemsData();
+            setItems(data);
+        })();        
+        // fetchItems();
         let cart = localStorage.getItem(CART_KEY);
-        console.log( 'Get: ' + JSON.parse(cart));
+        // console.log( 'Get: ' + JSON.parse(cart));
         if(cart === null || cart === undefined){
             cart = []
             setCart(cart);            
@@ -35,22 +40,14 @@ export default function Shop() {
     },[]) ; //Since array is empty it will be called once. 
 
     useEffect(()=>{
-        console.log( 'Items State' );
+        // console.log( 'Items State' );
         console.log( items );
     },[items]); //It will be called everytime todos [] change.
-      
+    useEffect(()=>{
+        localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    },[cart]); //It will be called everytime todos [] change.
+            
 
-    const fetchItems = async () =>{
-        const data = await fetch('https://fortnite-api.theapinetwork.com/store/get');
-        const itemsJson = await data.json()
-        if( itemsJson === null || itemsJson === undefined ||  
-            itemsJson.data === null || itemsJson.data === undefined || itemsJson.data.length === 0 ){
-            setItems(triviaJson);    
-        }else{
-            setItems(itemsJson.data);
-        }
-        // console.log( itemsJson.data);
-    }
     return (
         <>
             <table >
@@ -72,6 +69,12 @@ export default function Shop() {
                         </div>
                     </td>
                     <td>
+                        <div style={addToCartStyle}> 
+                            {/* <button onClick={handleCart}>Add To Cart</button> */}
+                            {/* <button onClick={clearCart}>Clear Cart</button> */}
+                            <Cart cart={cart} setCart={setCart}></Cart>            
+                        </div>
+
                     </td>
                 </tr>
             </table>

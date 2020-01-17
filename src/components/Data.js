@@ -1,4 +1,6 @@
-const fetchItems = async () =>{
+import triviaJson from '../Items.json';
+
+const fetchItemsData = async () =>{
     const data = await fetch('https://fortnite-api.theapinetwork.com/store/get');
     const itemsJson = await data.json()
     if( itemsJson === null || itemsJson === undefined ||  
@@ -9,3 +11,5 @@ const fetchItems = async () =>{
     }
     // console.log( itemsJson.data);
 }
+
+export default fetchItemsData;

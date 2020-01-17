@@ -13,6 +13,10 @@ export default function Cart({cart, setCart}) {
         border: '1px solid #bdbaba',
         textAlign: 'right'
     }     
+    const subTitleStyle = {
+        border: '1px solid #bdbaba',
+        fontSize: '22px'
+    } 
     const [total, setTotal] = useState([ ]);
     useEffect(()=>{
         if(cart === null || cart === undefined){
@@ -40,19 +44,22 @@ export default function Cart({cart, setCart}) {
         setCart( newCart.filter( cartItem => !cartItem.complete ) );      
         calculateTotal(newCart);
     }    
+    function checkOut(){
+        alert('You will be charged a total of $'+ total + ". Your items will be shipped shortly." );
+        setCart( [] );      
+        setTotal(0);
+    }       
     return (
         <> 
             <Rtif boolean={total === 0}>
-                <h1>Cart is empty!</h1>
+                <h1 style={subTitleStyle}>Your Shopping Cart is empty.</h1>
             </Rtif>                                  
             <Rtif boolean={total > 0}>
                 <table style={tableStyle}>
                     <tbody>
                         <tr>
-                            <th style={colStyle} ></th>    
-                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Clear Selected</button></th>
-                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Check Out</button></th>
-                        </tr>
+                            <th style={subTitleStyle} colSpan="5">Shopping Cart</th>
+                        </tr>                        
                         <tr>
                             <th style={colStyle}>#</th><th style={colStyle}></th><th style={colStyle}>Item</th>
                             <th style={colStyle}>Quantity</th><th style={colStyle}>Total</th>
@@ -64,6 +71,11 @@ export default function Cart({cart, setCart}) {
                         ))}
                         <tr>
                         <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>{total}</th>
+                        </tr>
+                        <tr>
+                            <th style={colStyle} ></th>    
+                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Clear Selected</button></th>
+                            <th style={colStyle} colSpan="2"><button onClick={checkOut}>Check Out</button></th>
                         </tr>
                     </tbody>
                 </table>
