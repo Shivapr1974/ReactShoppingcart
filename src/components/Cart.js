@@ -1,5 +1,6 @@
 import React, {  useRef, useState, useEffect } from 'react';
 import CartItem from './CartItem'
+import {Rtif} from '../Rtif';
 
 export default function Cart({cart, setCart}) {
     const tableStyle = {
@@ -41,27 +42,33 @@ export default function Cart({cart, setCart}) {
     }    
     return (
         <> 
-            <table style={tableStyle}>
-                <tbody>
-                    <tr>
-                        <th style={colStyle} ></th>    
-                        <th style={colStyle} colSpan="2"><button onClick={clearCart}>Clear Selected</button></th>
-                        <th style={colStyle} colSpan="2"><button onClick={clearCart}>Check Out</button></th>
-                    </tr>
-                    <tr>
-                        <th style={colStyle}>#</th><th style={colStyle}></th><th style={colStyle}>Item</th>
-                        <th style={colStyle}>Quantity</th><th style={colStyle}>Total</th>
-                    </tr>
-                    {cart.map( data => (
-                        <tr  key={data.id}>
-                            <CartItem cartItem={data} toggleCartItem={togglecart}></CartItem>
+            <Rtif boolean={total === 0}>
+                <h1>Cart is empty!</h1>
+            </Rtif>                                  
+            <Rtif boolean={total > 0}>
+                <table style={tableStyle}>
+                    <tbody>
+                        <tr>
+                            <th style={colStyle} ></th>    
+                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Clear Selected</button></th>
+                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Check Out</button></th>
                         </tr>
-                    ))}
-                    <tr>
-                    <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>{total}</th>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr>
+                            <th style={colStyle}>#</th><th style={colStyle}></th><th style={colStyle}>Item</th>
+                            <th style={colStyle}>Quantity</th><th style={colStyle}>Total</th>
+                        </tr>
+                        {cart.map( data => (
+                            <tr  key={data.id}>
+                                <CartItem cartItem={data} toggleCartItem={togglecart}></CartItem>
+                            </tr>
+                        ))}
+                        <tr>
+                        <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>{total}</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </Rtif>                                  
+
             
         </> 
 

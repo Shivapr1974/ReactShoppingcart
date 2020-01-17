@@ -1,5 +1,6 @@
 import React, {  useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
+import triviaJson from '../Items.json';
 
 export default function Shop() {
     const CART_KEY = 'cart-key';
@@ -42,7 +43,12 @@ export default function Shop() {
     const fetchItems = async () =>{
         const data = await fetch('https://fortnite-api.theapinetwork.com/store/get');
         const itemsJson = await data.json()
-        setItems(itemsJson.data);
+        if( itemsJson === null || itemsJson === undefined ||  
+            itemsJson.data === null || itemsJson.data === undefined || itemsJson.data.length === 0 ){
+            setItems(triviaJson);    
+        }else{
+            setItems(itemsJson.data);
+        }
         // console.log( itemsJson.data);
     }
     return (

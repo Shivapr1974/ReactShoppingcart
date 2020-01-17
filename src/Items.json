@@ -1,0 +1,343 @@
+[
+  {
+    "itemId": "33dc5d49-d999-4f4e-a62f-55bbf7955162",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": true,
+      "isRefundable": true,
+      "cost": 1200,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Bull Shark",
+      "description": null,
+      "type": "outfit",
+      "rarity": "rare",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/outfit/a5b9781c-f482-42c6-b96f-eb8196772aa1.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/33dc5d49-d999-4f4e-a62f-55bbf7955162.png?cache=1579219200",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/33dc5d49-d999-4f4e-a62f-55bbf7955162.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/33dc5d49-d999-4f4e-a62f-55bbf7955162/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 3.42,
+        "totalPoints": 65,
+        "numberVotes": 19
+      }
+    }
+  },
+  {
+    "itemId": "8ba42ea2-cdd4-47ee-8036-7e2d6326b747",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": true,
+      "isRefundable": true,
+      "cost": 500,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Underbite",
+      "description": null,
+      "type": "pickaxe",
+      "rarity": "uncommon",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/pickaxe/369b374d-a70f-4fcf-98f1-34ff5f3ba99e.png",
+        "featured": null,
+        "background": "https://fortnite-public-files.theapinetwork.com/image/8ba42ea2-cdd4-47ee-8036-7e2d6326b747.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/8ba42ea2-cdd4-47ee-8036-7e2d6326b747/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 3.92,
+        "totalPoints": 51,
+        "numberVotes": 13
+      }
+    }
+  },
+  {
+    "itemId": "31582f6-6ec92f2-d52ad4f-bdd2137",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": true,
+      "cost": 1200,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Mayhem",
+      "description": "Embrace the destruction.",
+      "type": "outfit",
+      "rarity": "rare",
+      "costmeticId": "AthenaCharacter:cid_263_athena_commando_f_madcommander",
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/outfit/fff63b7d81cd44a0253b6a4d807d7183.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/31582f6-6ec92f2-d52ad4f-bdd2137.png?cache=1579219200",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/31582f6-6ec92f2-d52ad4f-bdd2137.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/31582f6-6ec92f2-d52ad4f-bdd2137/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 3.59,
+        "totalPoints": 985,
+        "numberVotes": 274
+      }
+    }
+  },
+  {
+    "itemId": "b1228d7-02c0ecd-978f853-416b2d7",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": true,
+      "cost": 800,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Plunja",
+      "description": "The competition is circling the drain.",
+      "type": "pickaxe",
+      "rarity": "rare",
+      "costmeticId": "AthenaPickaxe:pickaxe_id_024_plunger",
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/pickaxe/7c2b79459b9c3a7d43e99b96feb21c07.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/b1228d7-02c0ecd-978f853-416b2d7.png?cache=1579219200",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/b1228d7-02c0ecd-978f853-416b2d7.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/b1228d7-02c0ecd-978f853-416b2d7/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4.27,
+        "totalPoints": 1560,
+        "numberVotes": 365
+      }
+    }
+  },
+  {
+    "itemId": "92d7211-9f5f454-87747b8-d3690b2",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": true,
+      "cost": 800,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Renegade",
+      "description": "Uncommon renegade outfit.",
+      "type": "outfit",
+      "rarity": "uncommon",
+      "costmeticId": "AthenaCharacter:cid_013_athena_commando_f",
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/outfit/4ed7bd29c090f722805f16592643e084.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/92d7211-9f5f454-87747b8-d3690b2.png?cache=1579219200",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/92d7211-9f5f454-87747b8-d3690b2.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/92d7211-9f5f454-87747b8-d3690b2/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 3.99,
+        "totalPoints": 3199,
+        "numberVotes": 801
+      }
+    }
+  },
+  {
+    "itemId": "5b9a866-7d3a15e-fa3e594-c5fa774",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": true,
+      "cost": 200,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Ground Pound",
+      "description": "Take it for a spin.",
+      "type": "emote",
+      "rarity": "uncommon",
+      "costmeticId": "AthenaDance:eid_acrobaticsuperhero",
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/emote/c3630ad59229379b1f27119f3be8d1c9.png",
+        "featured": null,
+        "background": "https://fortnite-public-files.theapinetwork.com/image/5b9a866-7d3a15e-fa3e594-c5fa774.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/5b9a866-7d3a15e-fa3e594-c5fa774/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4,
+        "totalPoints": 1104,
+        "numberVotes": 276
+      }
+    }
+  },
+  {
+    "itemId": "9d06343-7236183-111edc2-13044c0",
+    "lastUpdate": 1579219200,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": true,
+      "cost": 800,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Smooth Moves",
+      "description": "",
+      "type": "emote",
+      "rarity": "epic",
+      "costmeticId": "AthenaDance:eid_kpopdance02",
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/emote/763be9c5eaaa43b1f219c609355142da.png",
+        "featured": null,
+        "background": "https://fortnite-public-files.theapinetwork.com/image/9d06343-7236183-111edc2-13044c0.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/9d06343-7236183-111edc2-13044c0/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4.17,
+        "totalPoints": 4509,
+        "numberVotes": 1081
+      }
+    }
+  },
+  {
+    "itemId": "dda7e209-3293-4fb2-9806-9d2a4b5118be",
+    "lastUpdate": 1579105382,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": false,
+      "cost": 1500,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Ninja",
+      "description": null,
+      "type": "outfit",
+      "rarity": "epic",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/outfit/72dd1cbf-7122-4f20-998d-11514d5387ef.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/dda7e209-3293-4fb2-9806-9d2a4b5118be.png?cache=1579105382",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/dda7e209-3293-4fb2-9806-9d2a4b5118be.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/dda7e209-3293-4fb2-9806-9d2a4b5118be/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4,
+        "totalPoints": 3434,
+        "numberVotes": 859
+      }
+    }
+  },
+  {
+    "itemId": "daa18283-8d93-4429-a22c-11b75350b31b",
+    "lastUpdate": 1579105444,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": false,
+      "cost": 300,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Ninja Style",
+      "description": null,
+      "type": "emote",
+      "rarity": "epic",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/emote/e65cada6-c07f-4ad9-9727-9e5d62e169e7.png",
+        "featured": null,
+        "background": "https://fortnite-public-files.theapinetwork.com/image/daa18283-8d93-4429-a22c-11b75350b31b.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/daa18283-8d93-4429-a22c-11b75350b31b/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 3.82,
+        "totalPoints": 894,
+        "numberVotes": 234
+      }
+    }
+  },
+  {
+    "itemId": "fb99f690-97ee-4c8b-ad1b-294b2adb5135",
+    "lastUpdate": 1579105413,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": false,
+      "cost": 800,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Dual Katanas",
+      "description": null,
+      "type": "pickaxe",
+      "rarity": "epic",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/pickaxe/d19d70f0-7805-476f-9cdd-a541389f4211.png",
+        "featured": null,
+        "background": "https://fortnite-public-files.theapinetwork.com/image/fb99f690-97ee-4c8b-ad1b-294b2adb5135.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/fb99f690-97ee-4c8b-ad1b-294b2adb5135/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4.04,
+        "totalPoints": 93,
+        "numberVotes": 23
+      }
+    }
+  },
+  {
+    "itemId": "0776fedb-ebfe-4a03-9f56-efc0203c1493",
+    "lastUpdate": 1579219460,
+    "store": {
+      "isFeatured": false,
+      "isRefundable": false,
+      "cost": 500,
+      "occurrences": 0,
+      "isNew": false
+    },
+    "item": {
+      "name": "Sharky Shallows",
+      "description": null,
+      "type": "wrap",
+      "rarity": "rare",
+      "costmeticId": null,
+      "images": {
+        "icon": "https://fortnite-public-files.theapinetwork.com/wrap/e8ea81d1-28c4-4a3d-9584-a8f51e235d13.png",
+        "featured": "https://fortnite-public-files.theapinetwork.com/featured/0776fedb-ebfe-4a03-9f56-efc0203c1493.png?cache=1579219460",
+        "background": "https://fortnite-public-files.theapinetwork.com/image/0776fedb-ebfe-4a03-9f56-efc0203c1493.png",
+        "information": "https://fortnite-public-files.theapinetwork.com/image/0776fedb-ebfe-4a03-9f56-efc0203c1493/item.png"
+      },
+      "backpack": {},
+      "obtained_type": "vbucks",
+      "ratings": {
+        "avgStars": 4.5,
+        "totalPoints": 18,
+        "numberVotes": 4
+      }
+    }
+  }
+]

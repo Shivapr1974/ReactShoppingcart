@@ -4,10 +4,8 @@ import Cart from './Cart';
 export default function CartPage() {
     const CART_KEY = 'cart-key';
     const addToCartStyle = {
-        position: 'absolute',
-        left: '40%',
-        marginLeft: '-100px',
-        bottom: '70%',
+        paddingLeft: '300px',
+        paddingTop: '80px',
     }    
     const [cart, setCart] = useState([ ]);
     const [total, setTotal] = useState([ ]);
