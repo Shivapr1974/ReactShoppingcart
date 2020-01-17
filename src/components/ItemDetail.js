@@ -2,6 +2,7 @@ import React, {  useState, useEffect } from 'react';
 import {Rtif} from '../Rtif';
 import Cart from './Cart';
 import fetchItemsData from './Data'
+import Button from '@material-ui/core/Button';
 
 export default function ItemDetail({match}) {
     const CART_KEY = 'cart-key';
@@ -100,7 +101,7 @@ export default function ItemDetail({match}) {
                             {/* <img src={item.images?.background}></img>                  */}
                             {/* <img src={item.images?.information}></img>                  */}
                             <h2><i>{item.description}</i></h2>
-                            <button onClick={handleCart}>Add To Cart</button>
+                            <Button variant="contained" color="primary" onClick={handleCart}>Add To Cart</Button>
                         </div>
                     </td>
                     <td>

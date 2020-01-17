@@ -1,6 +1,14 @@
 import React, {  useRef, useState, useEffect } from 'react';
 import CartItem from './CartItem'
 import {Rtif} from '../Rtif';
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 
 export default function Cart({cart, setCart}) {
     const tableStyle = {
@@ -18,10 +26,27 @@ export default function Cart({cart, setCart}) {
         fontSize: '22px'
     } 
     const [total, setTotal] = useState([ ]);
+
+    // Dialog
+    const [open, setOpen] = React.useState(false);
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+    
+    const handleClose = () => {
+        setOpen(false);
+        setCart( [] );      
+    };
+    
+    // End of Dialog
+
     useEffect(()=>{
         if(cart === null || cart === undefined){
             cart = []
             setCart(cart);            
+            setTotal(0);
         }else{
             calculateTotal(cart);
         }
@@ -45,9 +70,8 @@ export default function Cart({cart, setCart}) {
         calculateTotal(newCart);
     }    
     function checkOut(){
-        alert('You will be charged a total of $'+ total + ". Your items will be shipped shortly." );
-        setCart( [] );      
-        setTotal(0);
+        // alert('You will be charged a total of $'+ total + ". Your items will be shipped shortly." );
+        handleClickOpen();
     }       
     return (
         <> 
@@ -73,14 +97,34 @@ export default function Cart({cart, setCart}) {
                         <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>{total}</th>
                         </tr>
                         <tr>
-                            <th style={colStyle} ></th>    
-                            <th style={colStyle} colSpan="2"><button onClick={clearCart}>Clear Selected</button></th>
-                            <th style={colStyle} colSpan="2"><button onClick={checkOut}>Check Out</button></th>
+                            {/* <th style={colStyle} ></th>     */}
+                            <th style={colStyle} colSpan="3">
+                                <Button variant="contained"  onClick={clearCart}>Clear Selected</Button>
+                            </th>
+                            <th style={colStyle} colSpan="2">
+                                <Button variant="contained" color="primary" onClick={checkOut}>Check Out</Button>
+                            </th>
                         </tr>
                     </tbody>
                 </table>
-            </Rtif>                                  
+            </Rtif>                            
 
+                <Dialog
+                    fullScreen={fullScreen}
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="responsive-dialog-title"
+                >
+                    <DialogTitle id="responsive-dialog-title">{"Shipping Confirmation"}</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            You will be charged a total of ${total}. Your items will be shipped shortly.
+                        </DialogContentText>
+                    </DialogContent>
+                    <DialogActions>
+                        <Button variant="contained" color="primary" onClick={handleClose} autoFocus>OK</Button>
+                    </DialogActions>
+                </Dialog>
             
         </> 
 
