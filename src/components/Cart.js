@@ -118,7 +118,8 @@ export default function Cart({cart, setCart}) {
                     <DialogTitle id="responsive-dialog-title">{"Shipping Confirmation"}</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            You will be charged a total of ${total}. Your items will be shipped shortly.
+                            <br></br>
+                            <b>You will be charged a total of ${total}. Your items will be shipped shortly.</b>
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>

@@ -26,3 +26,18 @@ body{
 .div-body{
   padding-left: 20px;
 }
+
+.MuiDialog-paperWidthSm {
+  background-color: lightblue !important;
+}
+.MuiDialogTitle-root {
+  background-color: #053861 !important;
+  color: white !important;
+}
+.MuiButton-containedPrimary {
+  color: #fff;
+  background-color: #053861 !important;
+}
+.MuiTypography-colorTextSecondary {
+  color: rgba(0, 0, 0, 0.62) !important;
+}
