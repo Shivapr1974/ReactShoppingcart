@@ -1,8 +1,9 @@
 import React, {  useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import triviaJson from '../Items.json';
 import Cart from './Cart';
 import fetchItemsData from './Data'
+import Rating from '@material-ui/lab/Rating';
+
 export default function Shop() {
     const CART_KEY = 'cart-key';
     const icon = {
@@ -10,9 +11,12 @@ export default function Shop() {
         height: '30px',
         paddingRight: '10px'
     }
-    const listStyle = {
-        listStyleType: 'none'
+    const tableStyle = {
+        border: '1px solid #bdbaba'
     }    
+    const colStyle = {
+        border: '1px solid #bdbaba'
+    } 
     const navStyle = {
         textDecoration: 'none'
     }    
@@ -54,18 +58,30 @@ export default function Shop() {
                 <tr>
                     <td>
                         <div>
-                            <h1>Shop</h1>
-                            <ul>
+                            
+                            <table style={tableStyle}>
+                                <tr>
+                                    <td colSpan="3"><h1>Shopping List</h1></td>
+                                </tr>
                                 {items.map( data => (
-                                    <li style={listStyle} key={data.itemId}>
-                                        <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
-                                            <img style={icon} src={data.item.images.icon}></img> 
-                                            {data.item.name} ({data.item.ratings.avgStars} ratings)
-                                        </Link>
-                                    </li>
+                                    <tr  key={data.itemId}>
+                                            <td style={colStyle}>
+                                                <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
+                                                    <img style={icon} src={data.item.images.icon}></img>
+                                                </Link>    
+                                            </td> 
+                                            <td style={colStyle}>
+                                                <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
+                                                    {data.item.name} 
+                                                </Link>    
+                                            </td>
+                                            <td style={colStyle}>
+                                                <Rating name="half-rating" value={data.item.ratings.avgStars} defaultValue={2.5} precision={0.5} />
+                                            </td>                                            
+                                    </tr>
                                 ))}
 
-                            </ul>
+                            </table>
                         </div>
                     </td>
                     <td>

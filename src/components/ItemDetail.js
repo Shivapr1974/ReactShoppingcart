@@ -3,6 +3,7 @@ import {Rtif} from '../Rtif';
 import Cart from './Cart';
 import fetchItemsData from './Data'
 import Button from '@material-ui/core/Button';
+import Rating from '@material-ui/lab/Rating';
 
 export default function ItemDetail({match}) {
     const CART_KEY = 'cart-key';
@@ -89,7 +90,9 @@ export default function ItemDetail({match}) {
                 <tr>
                     <td>
                         <div style={divStyle}>
-                            <h1>{item.name} ({item.ratings?.avgStars} ratings)</h1> 
+                            <h1>{item.name}  &nbsp;&nbsp;
+                            <Rating name="half-rating" value={item.ratings?.avgStars} defaultValue={2.5} precision={0.5} />
+                            </h1> 
                             {/* <img src={item.images?.icon}></img>                  */}
                             <Rtif boolean={item.images?.featured !== null}>
                                 <img style={imageStyle}  src={item.images?.featured}></img>                 
