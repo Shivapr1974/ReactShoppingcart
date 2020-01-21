@@ -45,3 +45,16 @@ body{
 .MuiTypography-colorTextSecondary {
   color: rgba(0, 0, 0, 0.62) !important;
 }
+.MuiAppBar-colorPrimary {
+  background-color: #053861 !important;
+}
+.MuiMenu-list {
+  background-color:#053861 !important;
+}
+
+.ham {
+  width: 35px;
+  height: 5px;
+  background-color: white;
+  margin: 6px 0;
+}
