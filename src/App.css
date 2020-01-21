@@ -58,3 +58,14 @@ body{
   background-color: white;
   margin: 6px 0;
 }
+
+.center {
+  text-align: center;
+}
+#menuId {
+  float: left;
+}
+#right {
+  float: right;
+  vertical-align: bottom;
+}

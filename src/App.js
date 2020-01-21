@@ -21,19 +21,29 @@ function App() {
     color: 'white',
     textDecoration: 'none'
   }  
-  const menustyle = {
-      marginLeft: '-220px'
-  }
+  // const menustyle = {
+  //     marginLeft: '-220px'
+  // }
   return (
     <Router>
       <AppBar> 
         {/* <Nav></Nav> */}
-        <span className="nav-links">
+        <div id="header" className="center">
+              <div id="title"> 
+                <span id="menuId"> <MenuNav></MenuNav> </span>
+                    <Link style={navStyle} to='/'>
+                        <h2>Shopping Cart App</h2>
+                    </Link>
+                <span id="right"></span>
+              </div>
+			        {/* <div style="clear: both;"></div> */}
+		    </div>        
+        {/* <span className="nav-links">
                <span style={menustyle}> <MenuNav></MenuNav></span>
                 <Link style={navStyle} to='/'>
                     <h2>Shopping Cart App</h2>
                 </Link>
-         </span>
+         </span> */}
       </AppBar>      
       <br/><br/><br/><br/><br/>
       <div className="div-body">
