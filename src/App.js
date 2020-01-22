@@ -33,7 +33,7 @@ function App() {
               <div id="title"> 
                 <span id="menuId"> <MenuNav></MenuNav> </span>
                     <Link style={navStyle} to='/'>
-                        <h2>Shopping Cart App</h2>
+                        <h2>Shopping Cart</h2>
                     </Link>
                 <span id="right"></span>
               </div>

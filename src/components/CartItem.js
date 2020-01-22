@@ -40,8 +40,14 @@ export default function CartItem({cartItem,toggleCartItem}) {
                         </Link>                        
                     
                 </td>  
-                <td style={numStyle}>{cartItem.qty}</td>  
-                <td style={numStyle}>{cartItem.totalItemCost}</td>      
+                <td style={numStyle}>
+                    {cartItem.qty}
+                </td>  
+                <td style={numStyle}>
+                    {new Intl.NumberFormat("en-US", {
+                        minimumFractionDigits: 2,
+                    }).format(cartItem.totalItemCost)}                    
+                </td>      
         </>
     )
 }

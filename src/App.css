@@ -64,7 +64,7 @@ body{
 }
 #menuId {
   float: left;
-  padding-left: 15px;
+  margin-left: 15px;
 }
 #right {
   float: right;

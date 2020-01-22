@@ -86,7 +86,7 @@ export default function Cart({cart, setCart}) {
                         </tr>                        
                         <tr>
                             <th style={colStyle}>#</th><th style={colStyle}></th><th style={colStyle}>Item</th>
-                            <th style={colStyle}>Quantity</th><th style={colStyle}>Total</th>
+                            <th style={colStyle}>Quantity</th><th style={colStyle}>Total $</th>
                         </tr>
                         {cart.map( data => (
                             <tr  key={data.id}>
@@ -94,7 +94,11 @@ export default function Cart({cart, setCart}) {
                             </tr>
                         ))}
                         <tr>
-                        <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>{total}</th>
+                            <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>
+                                {new Intl.NumberFormat("en-US", {
+                                    minimumFractionDigits: 2,
+                                }).format(total)}                                  
+                            </th>
                         </tr>
                         <tr>
                             {/* <th style={colStyle} ></th>     */}
