@@ -25,25 +25,23 @@ export default function ItemDetail({match}) {
     const [cart, setCart] = useState([ ]);
     const [cost, setCost] = useState([ ]);
 
-    useEffect(()=>{
-        // localStorage.setItem(CART_KEY, JSON.stringify([]));
-        let cart = localStorage.getItem(CART_KEY);
-        // console.log( 'Get: ' + JSON.parse(cart));
-        if(cart === null || cart === undefined){
-            cart = []
-            setCart(cart);            
-        }else{
-            calculateTotal(JSON.parse(cart));
-        }
-        (async () => {
-            const data = await fetchItemsData();
-            setItems(data);
-        })();  
-    },[]) ; //Since array is empty it will be called once. 
+    // useEffect(()=>{
+    //     fetchResource();
+    // },[]) ; //Since array is empty it will be called once. 
+
+    useEffect(() => {
+        fetchResource();
+    }, [match.params.id]);    //Call When parameter to function changes. It will also be called via constructor..
+
+
+
     useEffect(()=>{
         localStorage.setItem(CART_KEY, JSON.stringify(cart));
-      },[cart]); //It will be called everytime todos [] change.
-      
+    },[cart]); //It will be called everytime todos [] change.
+    
+
+
+
 
     useEffect(()=>{
         console.log( item );
@@ -74,6 +72,21 @@ export default function ItemDetail({match}) {
         }   
         calculateTotal(newCart) ;   
     }        
+    function fetchResource(){
+        // localStorage.setItem(CART_KEY, JSON.stringify([]));
+        let cart = localStorage.getItem(CART_KEY);
+        // console.log( 'Get: ' + JSON.parse(cart));
+        if(cart === null || cart === undefined){
+            cart = []
+            setCart(cart);            
+        }else{
+            calculateTotal(JSON.parse(cart));
+        }
+        (async () => {
+            const data = await fetchItemsData();
+            setItems(data);
+        })();    
+    }    
     function calculateTotal(newCart){
         let total = 0;
         newCart.map((cartItem) => {
