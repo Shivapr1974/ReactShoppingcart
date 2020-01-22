@@ -15,10 +15,12 @@ export default function MenuNav() {
   };
   const navStyle = {
     color: 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    fontSize: '18px',
+    fontWeight: 'bold'
   }
   const hamStyle = {
-    cursor: 'pointer'
+    cursor: 'pointer',
   }
   return (
     <>

@@ -15,6 +15,7 @@ import {Link} from 'react-router-dom';
 // URL : https://www.youtube.com/watch?v=hQAHSlTtcmY
 // URL : https://www.youtube.com/watch?v=Law7wfdg_ls
 // URL : https://medium.com/@sebastianfrancoflix/ngif-on-react-c4a67d2de011
+// URL: https://www.freecodecamp.org/news/the-react-cheatsheet-for-2020/
 
 function App() {
   const navStyle = {
