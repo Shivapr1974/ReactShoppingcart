@@ -45,7 +45,7 @@ export default function CartItem({cartItem,toggleCartItem}) {
                 </td>  
                 <td style={numStyle}>
                     {new Intl.NumberFormat("en-US", {
-                        minimumFractionDigits: 2,
+                        minimumFractionDigits: 2, maximumFractionDigits: 2
                     }).format(cartItem.totalItemCost)}                    
                 </td>      
         </>

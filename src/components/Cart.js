@@ -96,7 +96,7 @@ export default function Cart({cart, setCart}) {
                         <tr>
                             <th style={colStyle} colSpan="4">Grand Total</th><th style={numStyle}>
                                 {new Intl.NumberFormat("en-US", {
-                                    minimumFractionDigits: 2,
+                                    minimumFractionDigits: 2, maximumFractionDigits: 2
                                 }).format(total)}                                  
                             </th>
                         </tr>
