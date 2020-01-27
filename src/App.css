@@ -70,3 +70,11 @@ body{
   float: right;
   vertical-align: bottom;
 }
+.form-border {
+  background-color: rgba(241, 233, 233, 0.23);;
+  border-radius: 25px;
+  border: 2px solid #053861;
+  padding: 20px;  
+  border-radius: 25px;
+  width: 50%;
+}

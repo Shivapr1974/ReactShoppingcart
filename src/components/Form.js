@@ -4,6 +4,8 @@ import FormInput from './FormInput'
 export default class Form extends Component {
   columns= [{name:"existingUser", label:"Existing User: ", type: "checkbox"},
             {name:"rating", label:"Rating: ", type: "rating"},
+            {name:"userName", label:"User Name: ", type: "text"},
+            {name:"age", label:"Age: ", type: "number"},
             {name:"comments", label:"Comments: ", type: "textArea"} 
   ];   
   constructor(props) {
@@ -11,8 +13,9 @@ export default class Form extends Component {
     this.state = {
       existingUser: true,
       rating: 5,
+      userName: "Shivapr",
+      age: 25,
       comments: "Helo",
-   
     };
     this.handleInputChange = this.handleInputChange.bind(this);
   }

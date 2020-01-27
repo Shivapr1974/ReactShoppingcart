@@ -4,8 +4,8 @@ import Forms from './Form'
 export default function Feedback() {
     return (
         <>
-            <div>
-                <h1>Feedback Page</h1>
+            <h1>Feedback Page</h1>
+            <div className="form-border">
                 <Forms></Forms>
             </div>
         </>

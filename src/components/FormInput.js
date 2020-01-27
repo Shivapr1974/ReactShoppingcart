@@ -35,6 +35,8 @@ export default function FormInput({label, type, name, value, onChange}) {
                         name={name}
                         value={value}
                         onChange={onChange}
+                        type={type}
+                        variant="outlined"
                     />
                 </Rtif>  
                 <Rtif boolean={type === "textArea"} >
@@ -44,8 +46,8 @@ export default function FormInput({label, type, name, value, onChange}) {
                         onChange={onChange}
                         multiline
                         rows="4"
-                        variant="outlined"
-                        />                
+                        variant="outlined"                
+                    />                
                 </Rtif>  
             </td>         
         </>
