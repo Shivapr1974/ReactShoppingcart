@@ -11,6 +11,7 @@ import CartPage from './components/CartPage';
 import AppBar from '@material-ui/core/AppBar';
 import MenuNav from './MenuNav';
 import {Link} from 'react-router-dom';
+import Feedback from './components/Feedback';
 
 // URL : https://www.youtube.com/watch?v=hQAHSlTtcmY
 // URL : https://www.youtube.com/watch?v=Law7wfdg_ls
@@ -51,6 +52,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Shop}></Route>
           <Route path="/about" exact component={About}></Route>
+          <Route path="/feedback" exact component={Feedback}></Route>
           <Route path="/shop" exact component={Shop}></Route>
           <Route path="/shop/:id/:name" exact component={ItemDetail}></Route>
           <Route path="/todos" exact component={Todos}></Route>

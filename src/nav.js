@@ -17,9 +17,9 @@ export default function nav() {
                 <Link style={navStyle} to='/cart'>
                     <li>Cart</li>
                 </Link>
-                {/* <Link style={navStyle} to='/todos'>
-                    <li>Todos</li>
-                </Link> */}
+                <Link style={navStyle} to='/feedback'>
+                    <li>Feed Back</li>
+                </Link>
                 <Link style={navStyle} to='/about'>
                     <li>About</li>
                 </Link>

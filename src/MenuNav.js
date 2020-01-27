@@ -22,9 +22,15 @@ export default function MenuNav() {
   const hamStyle = {
     cursor: 'pointer',
   }
+  const hamText = {
+    color: 'white',
+    fontSize: '14px',
+    fontWeight: 'bold'
+  }  
   return (
     <>
       <span style={hamStyle} onClick={handleClick}>
+        {/* <div style={hamText}>MENU</div>     */}
         <div class="ham"></div>
         <div class="ham"></div>
         <div class="ham"></div>    
@@ -44,6 +50,11 @@ export default function MenuNav() {
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/cart'>
                 <li>Cart</li>
+            </Link>          
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+            <Link style={navStyle} to='/feedback'>
+                <li>Feedback</li>
             </Link>          
         </MenuItem>
         <MenuItem onClick={handleClose}>
