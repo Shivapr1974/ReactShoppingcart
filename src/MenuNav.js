@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import {Link} from 'react-router-dom';
+import CloseIcon from '@material-ui/icons/Close';
 export default function MenuNav() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -18,7 +19,7 @@ export default function MenuNav() {
     textDecoration: 'none',
     fontSize: '18px',
     fontWeight: 'bold'
-  }
+  } 
   const hamStyle = {
     cursor: 'pointer',
   }
@@ -42,6 +43,10 @@ export default function MenuNav() {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
+
+        <MenuItem onClick={handleClose}>
+          <div> <CloseIcon color="action"></CloseIcon></div>
+        </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/shop'>
                 <li>Home</li>
