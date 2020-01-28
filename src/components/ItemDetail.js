@@ -60,7 +60,7 @@ export default function ItemDetail({match}) {
         let newCart = [...cart];        
         let cartItem = cart.filter( cartItem => cartItem.id === match.params.id );      
         if(cartItem === undefined || cartItem === null || cartItem.length === 0){
-            newCart = [...newCart, {id:  match.params.id, name: item.name, icon: item.images.icon, cost: cost, qty: 1, complete: false} ]
+            newCart = [...newCart, {id:  match.params.id, name: item.name, icon: item.images.icon, cost: cost, qty: 1, complete: false, available: true} ]
         }else{
             newCart.map((cartItem) => {
                 if(cartItem.id === match.params.id){
@@ -90,6 +90,9 @@ export default function ItemDetail({match}) {
     function calculateTotal(newCart){
         let total = 0;
         newCart.map((cartItem) => {
+            if(cartItem.available === false){
+                cartItem.qty = 0;
+            }
             cartItem.totalItemCost = cartItem.qty * cartItem.cost
             total = total + cartItem.totalItemCost;
         });    
@@ -99,37 +102,39 @@ export default function ItemDetail({match}) {
 
     return (
         <>  
-            <table >
-                <tr>
-                    <td>
-                        <div style={divStyle}>
-                            <h1>{item.name}  &nbsp;&nbsp;
-                            <Rating name="half-rating" value={item.ratings?.avgStars} defaultValue={2.5} precision={0.5} />
-                            </h1> 
-                            {/* <img src={item.images?.icon}></img>                  */}
-                            <Rtif boolean={item.images?.featured !== null}>
-                                <img style={imageStyle}  src={item.images?.featured}></img>                 
-                            </Rtif>                                  
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div style={divStyle}>
+                                <h1>{item.name}  &nbsp;&nbsp;
+                                <Rating name="half-rating" value={item.ratings?.avgStars} defaultValue={2.5} precision={0.5} />
+                                </h1> 
+                                {/* <img src={item.images?.icon}></img>                  */}
+                                <Rtif boolean={item.images?.featured !== null}>
+                                    <img style={imageStyle}  src={item.images?.featured}></img>                 
+                                </Rtif>                                  
 
-                            <Rtif boolean={item.images?.featured === null}>
-                                <img style={imageStyle}  src={item.images?.icon}></img>                 
-                            </Rtif>                                  
-                            {/* <img src={item.images?.background}></img>                  */}
-                            {/* <img src={item.images?.information}></img>                  */}
-                            <h2><i>{item.description}</i></h2>
-                            <Button variant="contained" color="primary" onClick={handleCart}>Add To Cart</Button>
-                        </div>
-                    </td>
-                    <td>
-                        <div style={addToCartStyle}> 
-                            {/* <button onClick={handleCart}>Add To Cart</button> */}
-                            {/* <button onClick={clearCart}>Clear Cart</button> */}
-                            <Cart cart={cart} setCart={setCart}></Cart>            
-                        </div>
+                                <Rtif boolean={item.images?.featured === null}>
+                                    <img style={imageStyle}  src={item.images?.icon}></img>                 
+                                </Rtif>                                  
+                                {/* <img src={item.images?.background}></img>                  */}
+                                {/* <img src={item.images?.information}></img>                  */}
+                                <h2><i>{item.description}</i></h2>
+                                <Button variant="contained" color="primary" onClick={handleCart}>Add To Cart</Button>
+                            </div>
+                        </td>
+                        <td>
+                            <div style={addToCartStyle}> 
+                                {/* <button onClick={handleCart}>Add To Cart</button> */}
+                                {/* <button onClick={clearCart}>Clear Cart</button> */}
+                                <Cart cart={cart} setCart={setCart}></Cart>            
+                            </div>
 
 
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
 
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import Checkbox from '@material-ui/core/Checkbox';
 import {Link} from 'react-router-dom';
+import {Rtif} from '../Rtif';
 
 export default function CartItem({cartItem,toggleCartItem}) {
     const icon = {
@@ -35,10 +36,16 @@ export default function CartItem({cartItem,toggleCartItem}) {
                 </td>
                 <td style={colStyle}><img style={icon} src={cartItem.icon}></img> </td>                             
                 <td style={colStyle}>
+                    <Rtif boolean={cartItem.available === true}>
                         <Link style={navStyle} to={`/shop/${cartItem.id}/${cartItem.name}`}> 
-                        {cartItem.name}
+                            {cartItem.name}
                         </Link>                        
-                    
+                    </Rtif>                                      
+                    <Rtif boolean={cartItem.available === false}>
+                        <span> 
+                            {cartItem.name}
+                        </span>                        
+                    </Rtif>                                      
                 </td>  
                 <td style={numStyle}>
                     {cartItem.qty}
@@ -48,6 +55,9 @@ export default function CartItem({cartItem,toggleCartItem}) {
                         minimumFractionDigits: 2, maximumFractionDigits: 2
                     }).format(cartItem.totalItemCost)}                    
                 </td>      
+                <Rtif boolean={cartItem.available === false}>
+                    <td>Item is not available.</td>                   
+                </Rtif>                       
         </>
     )
 }

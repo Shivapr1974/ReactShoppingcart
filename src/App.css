@@ -48,7 +48,7 @@ body{
 .MuiAppBar-colorPrimary {
   background-color: #053861 !important;
 }
-.MuiMenu-list {
+#simple-menu  .MuiMenu-list {
   background-color:#053861 !important;
 }
 

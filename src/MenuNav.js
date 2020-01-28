@@ -32,9 +32,9 @@ export default function MenuNav() {
     <>
       <span style={hamStyle} onClick={handleClick}>
         {/* <div style={hamText}>MENU</div>     */}
-        <div class="ham"></div>
-        <div class="ham"></div>
-        <div class="ham"></div>    
+        <div className="ham"></div>
+        <div className="ham"></div>
+        <div className="ham"></div>    
       </span>
       <Menu
         id="simple-menu"
@@ -42,6 +42,7 @@ export default function MenuNav() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        className="menu"
       >
 
         <MenuItem onClick={handleClose}>
@@ -49,22 +50,22 @@ export default function MenuNav() {
         </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/shop'>
-                <li>Home</li>
+                Shop
             </Link>          
         </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/cart'>
-                <li>Cart</li>
+                Cart
             </Link>          
         </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/feedback'>
-                <li>Feedback</li>
+                Feedback
             </Link>          
         </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/about'>
-                <li>About</li>
+                About
             </Link>          
         </MenuItem>
       </Menu>

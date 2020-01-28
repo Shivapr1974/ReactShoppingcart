@@ -6,6 +6,7 @@ export default class Form extends Component {
             {name:"rating", label:"Rating: ", type: "rating"},
             {name:"userName", label:"User Name: ", type: "text"},
             {name:"age", label:"Age: ", type: "number"},
+            {name:"sex", label:"Sex: ", type: "select", options: [['M', 'Male'],['F', 'Female']] },
             {name:"comments", label:"Comments: ", type: "textArea"} 
   ];   
   constructor(props) {
@@ -46,6 +47,7 @@ export default class Form extends Component {
                         checked={this.state[val.name]}
                         value={this.state[val.name]}
                         onChange={this.handleInputChange}
+                        options={val.options}
                       ></FormInput>
                   </tr>
                 )

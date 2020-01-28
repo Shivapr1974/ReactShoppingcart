@@ -26,15 +26,31 @@ export default function Shop() {
     }        
     const [items, setItems] = useState([ ]);
     const [cart, setCart] = useState([ ]);
+    function resetCart(availableItems, cart){
+        if(cart === null || cart === undefined){
+            cart = []
+        }else{
+            cart = JSON.parse(cart);           
+        }         
+        cart.map((cartItem) => {
+            const item = availableItems.find( cart => cart.itemId === cartItem.id );
+            if(( item === null || item === undefined || item.length === 0) && 
+                 cartItem.available === true){
+                cartItem.available = false;
+            // }else{
+            //     cartItem.available = true;
+            }
+        });    
+        setCart(cart); 
+    }    
 
     useEffect(()=>{
         (async () => {
             const data = await fetchItemsData();
             setItems(data);
+            resetCart(data, cart);
         })();        
-        // fetchItems();
         let cart = localStorage.getItem(CART_KEY);
-        // console.log( 'Get: ' + JSON.parse(cart));
         if(cart === null || cart === undefined){
             cart = []
             setCart(cart);            
@@ -54,45 +70,47 @@ export default function Shop() {
 
     return (
         <>
-            <table >
-                <tr>
-                    <td>
-                        <div>
-                            
-                            <table style={tableStyle}>
-                                <tr>
-                                    <td colSpan="3"><h1>Shopping List</h1></td>
-                                </tr>
-                                {items.map( data => (
-                                    <tr  key={data.itemId}>
-                                            <td style={colStyle}>
-                                                <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
-                                                    <img style={icon} src={data.item.images.icon}></img>
-                                                </Link>    
-                                            </td> 
-                                            <td style={colStyle}>
-                                                <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
-                                                    {data.item.name} 
-                                                </Link>    
-                                            </td>
-                                            <td style={colStyle}>
-                                                <Rating name="half-rating" value={data.item.ratings.avgStars} defaultValue={2.5} precision={0.5} />
-                                            </td>                                            
-                                    </tr>
-                                ))}
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>
+                                <table style={tableStyle}>
+                                    <tbody>
+                                        <tr>
+                                            <td colSpan="3"><h1>Shopping List</h1></td>
+                                        </tr>
+                                        {items.map( data => (
+                                            <tr  key={data.itemId}>
+                                                    <td style={colStyle}>
+                                                        <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
+                                                            <img style={icon} src={data.item.images.icon}></img>
+                                                        </Link>    
+                                                    </td> 
+                                                    <td style={colStyle}>
+                                                        <Link style={navStyle} to={`/shop/${data.itemId}/${data.item.name}`}> 
+                                                            {data.item.name} 
+                                                        </Link>    
+                                                    </td>
+                                                    <td style={colStyle}>
+                                                        <Rating name="half-rating" value={data.item.ratings.avgStars} defaultValue={2.5} precision={0.5} />
+                                                    </td>                                            
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </td>
+                        <td>
+                            <div style={addToCartStyle}> 
+                                {/* <button onClick={handleCart}>Add To Cart</button> */}
+                                {/* <button onClick={clearCart}>Clear Cart</button> */}
+                                <Cart cart={cart} setCart={setCart}></Cart>            
+                            </div>
 
-                            </table>
-                        </div>
-                    </td>
-                    <td>
-                        <div style={addToCartStyle}> 
-                            {/* <button onClick={handleCart}>Add To Cart</button> */}
-                            {/* <button onClick={clearCart}>Clear Cart</button> */}
-                            <Cart cart={cart} setCart={setCart}></Cart>            
-                        </div>
-
-                    </td>
-                </tr>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </>
     )

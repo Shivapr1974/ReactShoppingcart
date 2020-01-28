@@ -5,8 +5,10 @@ import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import Rating from '@material-ui/lab/Rating';
 import FormLabel from '@material-ui/core/FormLabel';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 
-export default function FormInput({label, type, name, value, onChange}) {
+export default function FormInput({label, type, name, value, onChange, options}) {
     return (
         <>
             <td>
@@ -29,6 +31,21 @@ export default function FormInput({label, type, name, value, onChange}) {
                         value={value}                         
                     />
                 </Rtif>  
+                <Rtif boolean={type === "select"}>
+                <Select
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                >
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
+                    {options && options.map( data => (
+                        <MenuItem value={data[0]}>{data[1]}</MenuItem>
+                    ))}  
+                </Select>
+
+                </Rtif>                  
 
                 <Rtif boolean={type === "text" || type === "number"}>
                     <Input inputProps={{ 'aria-label': 'description' }} 

@@ -29,6 +29,9 @@ export default function CartPage() {
     function calculateTotal(newCart){
         let total = 0;
         newCart.map((cartItem) => {
+            if(cartItem.available === false){
+                cartItem.qty = 0;
+            }
             cartItem.totalItemCost = cartItem.qty * cartItem.cost
             total = total + cartItem.totalItemCost;
         });    
