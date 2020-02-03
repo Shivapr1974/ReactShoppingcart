@@ -23,7 +23,12 @@ export default function Shop() {
     const addToCartStyle = {
         textAlign: 'center',
         paddingLeft: '100px'
-    }        
+    }      
+    const cartTD = {
+        paddingTop: "100px",
+        verticalAlign: "top"
+
+    }    
     const [items, setItems] = useState([ ]);
     const [cart, setCart] = useState([ ]);
     function resetCart(availableItems, cart){
@@ -33,10 +38,13 @@ export default function Shop() {
             cart = JSON.parse(cart);           
         }         
         cart.map((cartItem) => {
+            // cartItem.available = true;             cartItem.qty = 1;            cartItem.totalItemCost = 1;
             const item = availableItems.find( cart => cart.itemId === cartItem.id );
             if(( item === null || item === undefined || item.length === 0) && 
                  cartItem.available === true){
                 cartItem.available = false;
+                cartItem.qty = 0;
+                cartItem.totalItemCost = 0;
             // }else{
             //     cartItem.available = true;
             }
@@ -101,7 +109,7 @@ export default function Shop() {
                                 </table>
                             </div>
                         </td>
-                        <td>
+                        <td className="shopCart" style={cartTD}>
                             <div style={addToCartStyle}> 
                                 {/* <button onClick={handleCart}>Add To Cart</button> */}
                                 {/* <button onClick={clearCart}>Clear Cart</button> */}
@@ -109,6 +117,18 @@ export default function Shop() {
                             </div>
 
                         </td>
+                    </tr>
+                    <tr className="shopCartSmall" >
+                        <td>
+                            <br/> <hr/> <br/>
+                            <div> 
+                                {/* <button onClick={handleCart}>Add To Cart</button> */}
+                                {/* <button onClick={clearCart}>Clear Cart</button> */}
+                                <Cart cart={cart} setCart={setCart}></Cart>            
+                            </div>
+
+                        </td>
+
                     </tr>
                 </tbody>
             </table>

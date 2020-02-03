@@ -4,8 +4,8 @@ import Cart from './Cart';
 export default function CartPage() {
     const CART_KEY = 'cart-key';
     const addToCartStyle = {
-        paddingLeft: '300px',
-        paddingTop: '80px',
+        // paddingLeft: '10%',
+        // paddingTop: '10%',
     }    
     const [cart, setCart] = useState([ ]);
     const [total, setTotal] = useState([ ]);
@@ -29,9 +29,9 @@ export default function CartPage() {
     function calculateTotal(newCart){
         let total = 0;
         newCart.map((cartItem) => {
-            if(cartItem.available === false){
-                cartItem.qty = 0;
-            }
+            // if(cartItem.available === false){
+            //     cartItem.qty = 0;
+            // }
             cartItem.totalItemCost = cartItem.qty * cartItem.cost
             total = total + cartItem.totalItemCost;
         });    

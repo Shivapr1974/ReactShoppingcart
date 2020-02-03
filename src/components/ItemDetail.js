@@ -90,9 +90,9 @@ export default function ItemDetail({match}) {
     function calculateTotal(newCart){
         let total = 0;
         newCart.map((cartItem) => {
-            if(cartItem.available === false){
-                cartItem.qty = 0;
-            }
+            // if(cartItem.available === false){
+            //     cartItem.qty = 0;
+            // }
             cartItem.totalItemCost = cartItem.qty * cartItem.cost
             total = total + cartItem.totalItemCost;
         });    

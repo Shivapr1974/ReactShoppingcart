@@ -26,6 +26,7 @@ export default function Cart({cart, setCart}) {
         fontSize: '22px'
     } 
     const [total, setTotal] = useState([ ]);
+    const [totalItems, setTotalItems] = useState([ ]);
 
     // Dialog
     const [open, setOpen] = React.useState(false);
@@ -53,10 +54,13 @@ export default function Cart({cart, setCart}) {
     },[cart]) ; //Since array is empty it will be called once. 
     function calculateTotal(newCart){
         let total = 0;
+        let itemCount = 0;
         newCart.map((cartItem) => {
             total = total + cartItem.totalItemCost;
+            itemCount++;
         });    
         setTotal(total);
+        setTotalItems(itemCount);
     }          
     function togglecart(id){
         const newCart = [...cart];
@@ -75,10 +79,10 @@ export default function Cart({cart, setCart}) {
     }       
     return (
         <> 
-            <Rtif boolean={total === 0}>
+            <Rtif boolean={totalItems === 0}>
                 <h1 style={subTitleStyle}>Your Shopping Cart is empty.</h1>
             </Rtif>                                  
-            <Rtif boolean={total > 0}>
+            <Rtif boolean={totalItems > 0}>
                 <table style={tableStyle}>
                     <tbody>
                         <tr>

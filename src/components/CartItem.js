@@ -34,7 +34,18 @@ export default function CartItem({cartItem,toggleCartItem}) {
                         inputProps={{ 'aria-label': 'primary checkbox' }}
                     />                    
                 </td>
-                <td style={colStyle}><img style={icon} src={cartItem.icon}></img> </td>                             
+                <td style={colStyle}>
+                    <Rtif boolean={cartItem.available === true}>
+                        <Link style={navStyle} to={`/shop/${cartItem.id}/${cartItem.name}`}> 
+                            <img style={icon} src={cartItem.icon}></img> 
+                        </Link>                        
+                    </Rtif>                                      
+                    <Rtif boolean={cartItem.available === false}>
+                        <span> 
+                            <img style={icon} src={cartItem.icon}></img> 
+                        </span>                        
+                    </Rtif>                                      
+                </td>                             
                 <td style={colStyle}>
                     <Rtif boolean={cartItem.available === true}>
                         <Link style={navStyle} to={`/shop/${cartItem.id}/${cartItem.name}`}> 

@@ -46,7 +46,9 @@ export default function MenuNav() {
       >
 
         <MenuItem onClick={handleClose}>
-          <div> <CloseIcon color="action"></CloseIcon></div>
+          <div> <CloseIcon color="action"></CloseIcon>
+          {/* <span id="close">Close</span> */}
+          </div>
         </MenuItem>
         <MenuItem onClick={handleClose}>
             <Link style={navStyle} to='/shop'>
