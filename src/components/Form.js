@@ -90,7 +90,7 @@ export default class Form extends Component {
 
 
         </form>
-        {JSON.stringify(this.state)}
+        {/* {JSON.stringify(this.state)} */}
 
           {/* <label>
             Is going:

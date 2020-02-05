@@ -8,7 +8,9 @@ const fetchItemsData = async () =>{
         const itemsJson = await data.json()
         let availableItems = [];
         if( itemsJson === null || itemsJson === undefined ||  
-            itemsJson.data === null || itemsJson.data === undefined || itemsJson.data.length === 0 ){
+            itemsJson.data === null || itemsJson.data === undefined || 
+            itemsJson.data.length === 0 || !Array.isArray(itemsJson.data) 
+        ){
                 availableItems =  triviaJson;    
         }else{
             availableItems =  itemsJson.data;

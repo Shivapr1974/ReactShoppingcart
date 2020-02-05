@@ -1,3 +1,30 @@
+var CACHE_NAME = 'fortnite-api-cache';
+var targetsToCache = [
+  '/',
+  'https://fortnite-api.theapinetwork.com/'
+];
+
+window.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log("In install--------------------");
+        return cache.addAll(targetsToCache);
+      })
+  );
+});
+
+window.addEventListener('fetch', function(event) {
+  event.respondWith(
+      caches.match(event.request).then(function(response) {
+        console.log("In FETCH--------------------");
+       // This returns the previously cached response 
+       // or fetch a new once if not already in the cache
+          return response || fetch(event.request);
+      })
+  );
+});
+
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -135,3 +162,6 @@ export function unregister() {
     });
   }
 }
+
+
+
